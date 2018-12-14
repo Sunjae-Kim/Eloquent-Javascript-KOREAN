@@ -1,6 +1,6 @@
 # Chapter 1 : VALUES, TYPES, AND OPERATORS
 
-### Chapter I : VALUES, TYPES, AND OPERATORS
+## Chapter I : VALUES, TYPES, AND OPERATORS
 
 컴퓨터의 세상에서는 모든것이 데이터로 이루어져있으며 데이터가 아닌것은 존재할 수가 없다. 모든 데이터들은 아주 긴 `bits` 의 시퀀스로 저장이 된다. **`Bits`** 는 2개의 값으로 구분이 된다. \(일반적으로 0과 1로 구분이 된다. \)
 
@@ -13,13 +13,13 @@
 
 > 이진수의 각각 8, 4, 1 자리에 숫자 1로 표시한 부분을 다 더하여 숫자 13을 만든다.
 
-#### VALUES
+### VALUES
 
 평균적인 컴퓨터의 메모리는 300억 bits 규모의 데이터 저장소가 있으며 하드디스크에는 이에 몇배에 해당한다. 이런 방대한 양의 비트로 데이터 손실 없이 작업하기 위해서 데이터들을 `chunk` 라고하는 정보의 덩어리들로 나누게 된다.
 
 JS에서는 이러한 `chunk` 들을 **`values`** 라고 부른다. 모든 `value` 들은 bits로 이루어져 있으며 저마다의 타입과 역할이 있다.
 
-#### NUMBERS
+### NUMBERS
 
 숫자의 형태로 이루어진 value 이다. 아래의 형태로 쓰인다.
 
@@ -33,7 +33,7 @@ JS에서는 숫자값에 64 bits를 사용한다. 64개의 비트 패턴으로 �
 
 9조까지의 숫자 계산은 언제나 정확성이 보장된다. 하지만 π 나 64비트로 다 표현할 수 없는 숫자의 계산은 정확도가 보장이되지 않는다.
 
-#### ARITHMETIC
+### ARITHMETIC
 
 `+` , `*` 와 같은 문자를 operators 라고 부른다. 숫자간의 연산을 하게하며 대표적인 **binary operator** 이다.
 
@@ -52,7 +52,7 @@ JS에서는 숫자값에 64 bits를 사용한다. 64개의 비트 패턴으로 �
 
 > 위처럼 나누고 난 뒤의 나머지만 계산하여 산출하게 된다.
 
-#### SPECIAL NUMBERS
+### SPECIAL NUMBERS
 
 JS에서는 일반 숫자들처럼 행동하지 않는 특별한 숫자 값들이 존재한다.
 
@@ -64,7 +64,7 @@ Infinity - 1 = Infinity
 
 > 모두 숫자타입이다. `Infinity`는 말 그대로 무한대를 의미하며 `NaN` 의 뜻은 'not a number' 이다. 논리적으로 숫자로서 계산될 수 없는 값들이 `NaN` 이라고 출력이 된다.
 
-#### STRING
+### STRING
 
 String 타입은 text, 문자열을 나타낸다. 아래와 같은 형태로 표기된다.
 
@@ -102,4 +102,24 @@ World`
 ```text
 "A newline character is written like \"\\n\"."
 ```
+
+**String Concatenation**
+
+String 타입은 숫자와 같이 나누기나 곱하기, 빼기 연산이 되지 않지만 `+` 문자를 통한 연산은 가능하다. 논리적으로 '더하기' 연산이 되는것은 아니며 문자열을 붙여주게 된다. concatenate 를 아래와 같이 표현할 수 있게된다.
+
+```text
+"con" + "cat" + "e" + "nate"
+```
+
+**Backtick \( \` \)**
+
+Backtick 으로 감싸진 문자열은 backtick안의 `${ }` 내부에서 문자열화 되는것을 피해갈 수 있는데 이를 'template literals' 라고 부른다. 내부에서 변수 호출 및 연산이 가능하게 되며 결과값이 문자열 형태로 반환이 된다.
+
+```text
+`half of 100 is ${100 / 2}`
+```
+
+> “_half of 100 is 50_” 라는 값이 산출된다.
+
+
 
