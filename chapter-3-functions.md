@@ -1,4 +1,4 @@
-# Chapter 3 :FUNCTIONS
+# Chapter 3 : FUNCTIONS
 
 ## DEFINING A FUNCTION
 
@@ -410,4 +410,104 @@ console.log(findSolution(24));
 > ```
 
 indentation 은 call stack 의 깊이를 나타낸 것이다. 최초 \( 1 + 5 \) 부터 시작하여 재귀를 시작한다. 재귀를 통해 목표 수보다 작거나 같은 수를 산출하는 모든 분기를 탐색할 수 있다. 목표에 맞는 수를 찾지 못했기 때문에 `null` 을 반환하고 다시 첫 번째 호출로 다시 돌아온게 된다. 거기서 `||` 연산자를 통해서 \( 1 \* 3 \) 호출이 된다. 즉, 첫 번째 재귀호출이 또 다른 재귀호출을 통해 목표 숫자를 탐색한다. 가장 안쪽의 호출은 문자열을 반환하고, 중간 호출의 각 연산자는 해당 문자열을 전달하며, 결국 답을 반환한다.
+
+## GROWING FUNCTIONS
+
+함수가 프로그램에 도입되는 두 가지 정도의 자연스런 방법이 있다.
+
+첫번째 방법으로는 비슷한 코드를 여러번 반복하는 것이다. 아마 이 방법을 좋아하진 않을 것이다. 코드가 많아질수록 실수를 숨길 수 있는 공간이 더 넓어지고 코드를 이해하려고 하는 사람들은 읽을 자료가 더 많아진다는 것을 의미한다. 그래서 반복되는 기능에 이름을 짓고 함수로 선언한다.
+
+두번째 방법으로는 먼저 사용될 기능들을 통해 걸맞는 함수이름 먼저 짓고 기능에 대한 코드를 채우는 것이다. 함수 자체를 정의하기 전에 해당 함수를 사용하는 코드를 작성할 수도 있다.
+
+함수에 맞는 이름을 통해서 포장하고자 하는 개념이 얼마나 명확한지 잘 보여주는 것은 어려운 일이다. 예시를 한 번 살펴보자.
+
+두개의 숫자를 출력하는 프로그램을 만들것이다. 숫자는 각각 소와 닭의 마릿수를 나타낼 것이며 이를 `Cows` 와 `Chickens` 로 지정하고 앞에 숫자 0 을 붙여서 항상 3자리 수로 유지하려고 한다.
+
+```text
+007 Cows
+011 Chickens
+```
+
+함수에 총 두개의 매개변수가 입력이 될 것이며 이는 각각 소와 닭의 마릿수가 되겠다. 코딩을 시작해보자 :
+
+```javascript
+function printFarmInventory(cows, chickens) {
+  let cowString = String(cows);
+  while (cowString.length < 3) {
+    cowString = "0" + cowString;
+  }
+  console.log(`${cowString} Cows`);
+  let chickenString = String(chickens);
+  while (chickenString.length < 3) {
+    chickenString = "0" + chickenString;
+  }
+  console.log(`${chickenString} Chickens`);
+}
+printFarmInventory(7, 11);
+```
+
+`.length` 를 string expression 뒤에 붙이게 되면 해당 string expression 의 길이가 반환된다. 따라서, 루프는 최소 3글자 길이까지 숫자 문자열 앞에 0을 계속 추가한다.
+
+프로그램이 완성이 되었다. 이 프로그램을 의뢰한 농장주에게 보내기 바로 전 농장주는 돼지까지 같이 셀 수 있는 프로그램을 요청하였다.
+
+단순히 `Pigs` 라는 이름으로 동일한 작업을 반복하기 전에 뭔가 더 좋은 방법이 있지 않을까 생각해본다.
+
+아래의 코드처럼 쓸 수 있을것 같다 :
+
+```javascript
+function printZeroPaddedWithLabel(number, label) {
+  let numberString = String(number);
+  while (numberString.length < 3) {
+    numberString = "0" + numberString;
+  }
+  console.log(`${numberString} ${label}`);
+}
+​
+function printFarmInventory(cows, chickens, pigs) {
+  printZeroPaddedWithLabel(cows, "Cows");
+  printZeroPaddedWithLabel(chickens, "Chickens");
+  printZeroPaddedWithLabel(pigs, "Pigs");
+}
+​
+printFarmInventory(7, 11, 3);
+```
+
+잘 작동한다. 하지만 `printZeroPaddedWithLabel` 라는 이름이 조금 이상하다. printing 하고 0을 padding 하고 label을 붙이는 것을 하나의 함수에 다 붙여 넣었다.
+
+한개의 반복되는 함수에 여러개의 개념을 다 붙이지 말고 차근차근 시작해보자 :
+
+```javascript
+function zeroPad(number, width) {
+  let string = String(number);
+  while (string.length < width) {
+    string = "0" + string;
+  }
+  return string;
+}
+​
+function printFarmInventory(cows, chickens, pigs) {
+  console.log(`${zeroPad(cows, 3)} Cows`);
+  console.log(`${zeroPad(chickens, 3)} Chickens`);
+  console.log(`${zeroPad(pigs, 3)} Pigs`);
+}
+​
+printFarmInventory(7, 16, 3);
+```
+
+`zeroPad` 라는 명확한 함수이름은 코드를 읽으려고 하는 사람의 이해를 도울 수 있다. 뿐만 아니라 이러한 함수는 단지 해당 프로그램 뿐만 아니라 다른 특정 프로그램에서도 사용될 수 있다. 예를 들면 잘 정렬되는 숫자표를 만들 때에도 사용될 수 있을 것이다.
+
+함수는 얼마나 똑똑하고 다재다능해야 하는가? 우리는 3글자 정도로만 패딩할 수 있는 아주 단순한 함수를 소숫자, 음숫자, 소수점 정렬, 다른 글자로 된 패딩 등과 같은 복잡한 일반화된 숫자 포맷 시스템에 이르기까지 무엇이든 쓸 수 있는 함수로 까지 만들 수 있다.
+
+정말로 해당 기능이 필요하기 전 까지는 딱 필요한 부분만 구현하는게 좋다. 모든 기능을 아우러서 적용할 수 있는 'framework' 를 만들지 말자. 절대 사용할 일 없는 코드를 만들고 있을수도 있으며 정작 진짜로 필요한 작업을 완료하지 못할 것이다.
+
+## FUNCTIONS AND SIDE EFFECTS
+
+함수는 대개 side effect 를 위해 호출되거나 특정 value 를 반환하기 위해 호출되는것으로 나뉘어 질 수 있다. 물론 두가지를 다 수행하는 함수도 존재한다.
+
+위 예시에서의 첫번째 `printZeroPaddedWithLabel` 함수는 문장을 출력하는 side effect 를 위해 호출됐었다. 두번째 `zeroPad` 함수는 값을 반환하기 위해 호출 됐었다. 두번째 함수가 첫번째보다 더 유용하게 사용되는 것은 결코 우연이 아니다. 값을 반환하는 함수는 직접적으로 side effect 를 수행하는 함수보다 더 새로운 방식으로 응용되기 쉽다.
+
+순수한 함수\(pure function\) 은 side effect 가 없을 뿐더러 다른 코드에 대한 의존성 없이 특정 가치를 생산할 수 있다. 예를 들면 값이 바뀔 수 있는 global binding 을 사용하지 않는 것이다. 순수한 함수는 같은 매개변수로 호출 되었을 때 항상 같은 값을 생산하는 특성을 가지고 있다. 그 외에는 어떠한 작업도 하지 않는다. 이러한 함수의 호출을 해당 함수의 반환값만으로 대체할 수 있다. 이러한 순수함수가 제대로 작동하는지 확신하지 않을 때 단순이 함수를 호출하여 테스트할 수 있으며, 해당 context 에서 제대로 작동한다면 어떤 상황에서든 작동한다는 것을 알 수 있다. 반대로 nonpure function 은 테스트를 위해서 많은 재료가 필요하다.
+
+하지만 순수함수가 아닌 함수를 사용하는것이 나쁜것은 아니며 코드에서 삭제하기 위해서 큰 노력을 할 필요는 없다. side effect 는 종종 유용하게 쓰인다. 예를 들자면 `console.log` 가 있겠다. 순수함수로는 구현할 방법이 없는 함수이다. 또한 어떤 작업은 side effect 를 사용할 때 더 효과적으로 표현할 수 있기 때문에 컴퓨팅 속도 때문에 순수함수를 사용하지 않을 수도 있다.  
+
 
