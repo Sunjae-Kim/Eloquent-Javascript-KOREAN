@@ -4,7 +4,7 @@
 
 **숫자 13을 `bits`로 표현하는 방법** :
 
-```text
+```javascript
    0   0   0   0   1   1   0   1
  128  64  32  16   8   4   2   1
 ```
@@ -21,7 +21,7 @@ JS에서는 이러한 `chunk` 들을 **`values`** 라고 부른다. 모든 `valu
 
 숫자의 형태로 이루어진 value 이다. 아래의 형태로 쓰인다.
 
-```text
+```javascript
 13
 ```
 
@@ -35,7 +35,7 @@ JS에서는 숫자값에 64 bits를 사용한다. 64개의 비트 패턴으로 �
 
 `+` , `*` 와 같은 문자를 operators 라고 부른다. 숫자간의 연산을 하게하며 대표적인 **binary operator** 이다.
 
-```text
+```javascript
 100 + 4 * 11
 ```
 
@@ -43,7 +43,7 @@ JS에서는 숫자값에 64 bits를 사용한다. 64개의 비트 패턴으로 �
 
 사칙연산 외에도 프로그래밍에 자주 쓰이는 나머지를 구하는 연산자가 있는데 `%` 기호이다.
 
-```text
+```javascript
 314 % 100 = 14
 144 % 12 = 0
 ```
@@ -54,7 +54,7 @@ JS에서는 숫자값에 64 bits를 사용한다. 64개의 비트 패턴으로 �
 
 JS에서는 일반 숫자들처럼 행동하지 않는 특별한 숫자 값들이 존재한다.
 
-```text
+```javascript
 Infinity - Infinity = NaN
 Infinity - 1 = Infinity
 0 / 0 = NaN
@@ -66,7 +66,7 @@ Infinity - 1 = Infinity
 
 String 타입은 text, 문자열을 나타낸다. 아래와 같은 형태로 표기된다.
 
-```text
+```javascript
 `Down on the sea`
 "Lie on the ocean"
 'Float on the ocean'
@@ -80,7 +80,7 @@ String 타입 역시 내부적으로는 bits들의 나열로 이루어져 있으
 
 거의 모든것이 따옴표 사이에 존재할 수 있으나 일부 문자들은 존재할 수 없게 된다. 그 예시로 'Newlines' \( enter를 눌렀을 때 얻게되는 문자 \) 의 경우에는 \( \` \) 내부에 존재할 때만 온전이 사용할 수 있게 된다.
 
-```text
+```javascript
 `Hello
 World`
 ```
@@ -97,7 +97,7 @@ World`
 
 “_A newline character is written like "\n"._” 이라는 문장을 표현하기 위해서 아래와 같이 쓰게 된다.
 
-```text
+```javascript
 "A newline character is written like \"\\n\"."
 ```
 
@@ -105,7 +105,7 @@ World`
 
 String 타입은 숫자와 같이 나누기나 곱하기, 빼기 연산이 되지 않지만 `+` 문자를 통한 연산은 가능하다. 논리적으로 '더하기' 연산이 되는것은 아니며 문자열을 붙여주게 된다. concatenate 를 아래와 같이 표현할 수 있게된다.
 
-```text
+```javascript
 "con" + "cat" + "e" + "nate"
 ```
 
@@ -113,7 +113,7 @@ String 타입은 숫자와 같이 나누기나 곱하기, 빼기 연산이 되�
 
 Backtick 으로 감싸진 문자열은 backtick안의 `${ }` 내부에서 문자열화 되는것을 피해갈 수 있는데 이를 'template literals' 라고 부른다. 내부에서 변수 호출 및 연산이 가능하게 되며 결과값이 문자열 형태로 반환이 된다.
 
-```text
+```javascript
 `half of 100 is ${100 / 2}`
 ```
 

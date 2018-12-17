@@ -25,7 +25,7 @@
 
 JS는 생성한 값을 잡아두고 저장하기 위해 **binding** 또는 **variable \(변수\)** 라는 것을 제공한다.
 
-```text
+```javascript
 let caught = 5 * 5;
 ```
 
@@ -35,7 +35,7 @@ let caught = 5 * 5;
 
 변수를 정의하고 난 뒤로는 해당 변수를 하나의 expression으로서 사용할 수 있게 된다.
 
-```text
+```javascript
 let ten = 10;
 console.log(ten * ten);
 // → 100
@@ -45,7 +45,7 @@ console.log(ten * ten);
 
 변수는 한번 선언이 되면 그 값이 영원히 묶이는것이 아니다. `=` 연산자를 통해서 언제나 기존의 값을 끊고 새로운 값을 할당할 수 있다.
 
-```text
+```javascript
 let mood = "light";
 console.log(mood);
 // → light
@@ -56,7 +56,7 @@ console.log(mood);
 
 변수를 하나의 '박스' 보다는 하나의 '촉수'라고 생각하여 값을 묶고 있다고 생각하는게 더 올바른 표현이다. 변수는 값을 담고있지 않으며 묶고있다고 생각하면 된다. \(두개의 변수가 한개의 값을 잡을 수 있다.\)
 
-```text
+```javascript
 let luigisDebt = 140;
 luigisDebt = luigisDebt - 35;
 console.log(luigisDebt);
@@ -67,7 +67,7 @@ console.log(luigisDebt);
 
 `const` 와 `var` 라는 키워드 역시 `let` 과 함께 binding을 생성하는 용도로 사용한다.
 
-```text
+```javascript
 var name = "Ayda";
 const greeting = "Hello ";
 console.log(greeting + name);
@@ -88,7 +88,7 @@ console.log(greeting + name);
 
    Binding 이름으로 사용될 수 없는 목록 :
 
-   ```text
+   ```javascript
    break case catch class const continue debugger default
    delete do else enum export extends false finally for
    function if implements import interface in instanceof let
@@ -112,7 +112,7 @@ environment 에 있는 많은 value 들의 타입은 **function\(함수\)** 이�
 
 아래는 `propmpt` 라는 binding이 가지고 있는 function을 실행한 예시이며 사용자를 통해 입력받을 수 있는 박스를 보여준다.
 
-```text
+```javascript
 prompt("Enter passcode");
 ```
 
@@ -136,7 +136,7 @@ Binding 이름에는 `.` 을 포함할 수 없지만 `console.log` 는 일반적
 
 예를 들면 `Math.max` 라는 함수는 2개의 매개변수를 받아 둘 중에서 더 큰 숫자를 준다.
 
-```text
+```javascript
 console.log(Math.max(2, 4));
 // → 4
 ```
@@ -145,7 +145,7 @@ console.log(Math.max(2, 4));
 
 아래의 `Math.min` 이라는 `Math.max` 와 반대로 작동하는 함수를 더하기 expression의 일부로 사용해보겠다.
 
-```text
+```javascript
 console.log(Math.min(2, 4) + 100);
 // → 102
 ```
@@ -156,7 +156,7 @@ console.log(Math.min(2, 4) + 100);
 
 Program 에서 1개 이상의 statement 가 존재하게 될 때 statement 들은 위에서 아래 순서로 실행되게 될 것이다. 아래의 예시를 확인해보자.
 
-```text
+```javascript
 let theNumber = Number(prompt("Pick a number"));
 console.log("Your number is the square root of " +
             theNumber * theNumber);
@@ -180,7 +180,7 @@ Straight-line control flow 를 표현한 간단한 도식을 한번 그려보겠
 
 조건문은 JS에서 `if` keyword 를 통해서 생성한다. 한개의 조건을 통과했을때만 실행이 되는 간단한 예시를 예시를 살펴보자.
 
-```text
+```javascript
 let theNumber = Number(prompt("Pick a number"));
 if (!Number.isNaN(theNumber)) {
   console.log("Your number is the square root of " +
@@ -196,7 +196,7 @@ if (!Number.isNaN(theNumber)) {
 
 `if` 문 다음에 나오는 statement 는 중괄호 `{}` 를 통해 묶여져있다. 중괄호는 여러개의 statement를 하나의 statement 로 묶을 때 사용되며 이를 **block** 이라고 표현한다. 위의 예시의 경우에는 `if` 뒤에는 이미 1개의 statement 만 존재하기 때문에 중괄호를 생략해도 상관이 없다. 아래와 같은 예시처럼 사용할 수 있는것이다.
 
-```text
+```javascript
 if (1 + 1 == 2) console.log("It's true");
 // → It's true
 ```
@@ -205,7 +205,7 @@ if (1 + 1 == 2) console.log("It's true");
 
 `if` 조건에 부합하지 않았을 때의 코드로 분기해보자. 이 상황은 위 도식에서의 두번째 화살표로 표현이 되겠다. `else` keyword 를 통해서 분기할 수 있으며 `if` 와 함께 두가지 상황으로 나누는 예시를 보자.
 
-```text
+```javascript
 let theNumber = Number(prompt("Pick a number"));
 if (!Number.isNaN(theNumber)) {
   console.log("Your number is the square root of " +
@@ -217,7 +217,7 @@ if (!Number.isNaN(theNumber)) {
 
 만약 2개 이상의 조건을 두고 싶다면 여러개의 `if else` 조합을 사용할 수도 있다 :
 
-```text
+```javascript
 let num = Number(prompt("Pick a number"));
 ​
 if (num < 10) {
@@ -243,7 +243,7 @@ if (num < 10) {
 
 0과 12 사이의 모든 짝수를 출력하는 프로그램을 작성해보자 :
 
-```text
+```javascript
 console.log(0);
 console.log(2);
 console.log(4);
@@ -259,7 +259,7 @@ console.log(12);
 
 반복문을 작성하게 되면 프로그램을 어느 지점으로 되돌아가게한 뒤 프로그램을 다시 반복시키는 작업이 가능하게 된다. 만약 이 작업을 counting 되는 binding과 함께 사용한다면 아래의 예시와 같이 사용할 수 있을것이다.
 
-```text
+```javascript
 let number = 0;
 while (number <= 12) {
   console.log(number);
@@ -276,7 +276,7 @@ while (number <= 12) {
 
 다음은 2^10 을 구하는 다른 예시를 한 번 살펴보자 :
 
-```text
+```javascript
 let result = 1;
 let counter = 0;
 while (counter < 10) {
@@ -291,7 +291,7 @@ console.log(result);
 
 `do` 반복문은 `while` 반복문이랑 거의 동일하다고 보면 된다. 유일한 차이점이 있다면 `do` 반복문은 조건에 상관없이 최소한 한번은 무조건 statement 가 실행이 된다는 것이다.
 
-```text
+```javascript
 let yourName;
 do {
   yourName = prompt("Who are you?");
@@ -309,7 +309,7 @@ console.log(yourName);
 
 새로운 block 뒤에 공백 2개를 선호하는 사람과 4개를 선호하는 사람이 있으며 `\t` 문자를 선호하는 사람도 있다. 중요한 것은 모든 새로운 block 뒤에는 동일한 크기의 공백이 생겨야 한다는 것이다.
 
-```text
+```javascript
 if (false != true) {
   console.log("That makes sense.");
   if (1 < 2) {
@@ -324,7 +324,7 @@ if (false != true) {
 
 이런 패턴은 굉장히 흔하기 때문에 JS 와 다른 비슷한 언어들에서는 더 짧고 간편하게 사용할 수 있는 `for` 반복문을 제공한다. 대부분에 상황에서 `while` 반복문보다 짧고 간결하게 사용할 수 있다.
 
-```text
+```javascript
 for (let number = 0; number <= 12; number = number + 2) {
   console.log(number);
 }
@@ -343,7 +343,7 @@ for (let number = 0; number <= 12; number = number + 2) {
 
 아래에서 2^10 의 값을 구하는 반복문을 `for` 문으로 구현해보겠다.
 
-```text
+```javascript
 let result = 1;
 for (let counter = 0; counter < 10; counter = counter + 1) {
   result = result * 2;
@@ -356,7 +356,7 @@ console.log(result);
 
 `false` 값이 생겨야만 반복문이 끝날 수 있는것은 아니다. `break` 라는 특별한 statement 로 즉시 반복문에서 빠져나갈 수 있는 방법이 있다. 아래의 예시를 살펴보자 :
 
-```text
+```javascript
 for (let current = 20; ; current = current + 1) {
   if (current % 7 == 0) {
     console.log(current);
@@ -376,26 +376,26 @@ for (let current = 20; ; current = current + 1) {
 
 특히 반복문에서 자주 볼 수 있는 형태로 하나의 binding 이 해당 binding 의 이전 값을 기반으로 새로운 값이 할당되어야 하는 경우가 종종 있다.
 
-```text
+```javascript
 counter = counter + 1;
 ```
 
 JS 에는 위 코드의 shortcut 이 존재한다.
 
-```text
+```javascript
 counter += 1;
 ```
 
 비슷하게 다른 연산자들도 위와 같은 연산이 가능하다.
 
-```text
+```javascript
 result *= 2;
 counter -= 1;
 ```
 
 이러한 방식으로 위에서 본 counting 예시를 다시 작성해보겠다.
 
-```text
+```javascript
 for (let number = 0; number <= 12; number += 2) {
   console.log(number);
 }
@@ -403,7 +403,7 @@ for (let number = 0; number <= 12; number += 2) {
 
 단순하게 1 증감은 아래의 코드로 더 짧게 사용할 수 있다.
 
-```text
+```javascript
 counter++;
 counter--;
 ```
@@ -412,7 +412,7 @@ counter--;
 
 아래와 같은 코드가 보기드문 코드는 아닐것이다 :
 
-```text
+```javascript
 if (x == "value1") action1();
 else if (x == "value2") action2();
 else if (x == "value3") action3();
@@ -421,7 +421,7 @@ else defaultAction();
 
 `switch` 라고 불리는 더 직접적으로 조건에 부합하는 값에 접근하기 위해 만들어진 구조가 존재한다. 하지만 이를 위한 JS 의 문법은 보기가 조금 힘들며 오히려 `if` 문이 보기가 더 나을수도 있다.
 
-```text
+```javascript
 switch (prompt("What is the weather like?")) {
   case "rainy":
     console.log("Remember to bring an umbrella.");
@@ -443,7 +443,7 @@ switch (prompt("What is the weather like?")) {
 
 Binding 의 이름에는 공백이 허용되지 않으나 많은 경우 여러개의 단어를 합쳐서 binding 의 이름을 짓는 경우가 많다. 이름을 짓는 방법은 아래와 같으며 단순히 코드를 작성하는 사람의 선택에 달렸다 :
 
-```text
+```javascript
 fuzzylittleturtle
 fuzzy_little_turtle
 FuzzyLittleTurtle
@@ -460,7 +460,7 @@ JS 의 기본 함수 및 대부분의 JS 프로그래머들은 모두 마지막 
 
 주석은 텍스트들로 이루어져 있으나 프로그램이 실행될 때 완벽하게 무시되는 부분이다. 한 행에 주석을 달아보도록 하자.
 
-```text
+```javascript
 let accountBalance = calculateBalance(account);
 // It's a green hollow where a river sings
 accountBalance.adjust();
@@ -475,7 +475,7 @@ addToReport(accountBalance, report);
 
 여러 라인을 아우르는 주석을 작성해보도록 하자.
 
-```text
+```javascript
 /*
   I first found this number scrawled on the back of an old notebook.
   Since then, it has often dropped by, showing up in phone numbers
