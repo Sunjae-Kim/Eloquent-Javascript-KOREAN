@@ -1,4 +1,4 @@
-# Chapter 1 : VALUES, TYPES, AND OPERATORS
+# Chapter 1 : Values, Types, And Operators
 
 컴퓨터의 세상에서는 모든것이 데이터로 이루어져있으며 데이터가 아닌것은 존재할 수가 없다. 모든 데이터들은 아주 긴 `bits` 의 시퀀스로 저장이 된다. **`Bits`** 는 2개의 값으로 구분이 된다. \(일반적으로 0과 1로 구분이 된다. \)
 

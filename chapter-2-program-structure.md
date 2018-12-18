@@ -1,4 +1,4 @@
-# Chapter 2 : PROGRAM STRUCTURE
+# Chapter 2 : Program Structure
 
 ## EXPRESSION AND STATEMENTS
 
